@@ -2,7 +2,7 @@
 public class Listing {
 
 	// start of privates and encapsulated fields
-	private String name;
+	private String name; // key field
 	private String idNumber;
 	private String gradePointAverage;
 	
@@ -31,5 +31,22 @@ public class Listing {
 		this.idNumber = idNumber;
 		this.gradePointAverage = gradePointAverage;
 	}
-
+	
+	public String toString() {
+		var toString = "Name: "
+				+ this.name
+				+ "\nId: "
+				+ this.idNumber
+				+ "\nGpa: "
+				+ this.gradePointAverage;
+		return toString;
+	}
+	
+	public Listing deepCopy() {
+		return new Listing(this.name, this.idNumber, this.gradePointAverage);
+	}
+	
+	public int compareTo(String targetKey) {
+		return this.name.compareTo(targetKey);
+	}
 }
